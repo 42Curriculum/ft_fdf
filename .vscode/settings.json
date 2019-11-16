@@ -1,0 +1,20 @@
+{
+    "editor.insertSpaces": false,
+    "files.associations": {
+        "stdlib.h": "c",
+        "fcntl.h": "c",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "memory": "cpp",
+        "sstream": "cpp",
+        "stdexcept": "cpp",
+        "array": "cpp",
+        "hashtable": "cpp",
+        "tuple": "cpp"
+    },
+    "C_Cpp.dimInactiveRegions": false
+}
