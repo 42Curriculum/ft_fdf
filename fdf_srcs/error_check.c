@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:31:27 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/16 04:00:52 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/16 06:06:25 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int reader(char *file)
 	return (1);
 }
 
-char *read_file(char *arg)
+char *read_file(char *arg, int *len)
 {
     char *line;
     char *str;
@@ -61,12 +61,14 @@ char *read_file(char *arg)
     str = ft_strnew(0);
     line = ft_strnew(0);
     get_next_line(fd, &line);
-    if ((ft_strlen(line) == 0) && !write_error(5))
+    if (((*len = ft_ctwords(line, ' ')) == 0) && !write_error(5))
         return(NULL);
     str = ft_better_strjoin(&str, line);
     str = ft_better_strjoin(&str, " ");
     while (get_next_line(fd, &line))
     {
+        if (ft_ctwords(line, ' ') != *len && !write_error(4))
+            return (NULL);
         str = ft_better_strjoin(&str, line);
         str = ft_better_strjoin(&str, " ");
         free(line);
@@ -74,13 +76,13 @@ char *read_file(char *arg)
     return (str);
 }
 
-int file_check(char *arg, char ***map)
+int file_check(char *arg, char ***map, int *len)
 {
     char *file;
 
-    if (!(reader(arg)))
+    if ((reader(arg) <= 0))
         return (-1);
-    if (!(file = read_file(arg)))
+    if (!(file = read_file(arg, len)))
         return (0);
     *map = ft_strsplit(file, ' ');
     if (!(error_check(*map)))
@@ -88,7 +90,7 @@ int file_check(char *arg, char ***map)
     return (1); 
 }
 
-int error_loop(char *arg)
+char **error_loop(char *arg, int *len)
 {
     char **map;
     int error_code;
@@ -97,7 +99,7 @@ int error_loop(char *arg)
     
     input = malloc(210);
     input = ft_strcat(input, arg);
-    while ((error_code = file_check(input, &map) <= 0))
+    while (((error_code = file_check(input, &map, len)) <= 0))
     {
         ft_putstr("\e[0;32m Please input a new file or type !edit \n");
         b = read(0, input, 209);
@@ -113,5 +115,5 @@ int error_loop(char *arg)
             }
         }
     }
-    return (0);
+    return (map);
 }

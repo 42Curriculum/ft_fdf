@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 12:40:36 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/14 20:11:44 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/16 10:20:17 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,27 @@ int		make_image(t_data *data)
 	int i;
 	t_line *line;
 
-	i = data->size - 1;
+	i = 0;
 	line = malloc(sizeof(t_line));
-	while (i >= 0)
+	while (i < data->size)
 	{
-		if (((i - 1) >= 0) && i != 3 && i != 6)
+		if (((i + 1) < data->size) && ((i + 1) % data->len != 0))
 		{
 			line->x1 = (*data->coords)[i]->x;
 			line->y1 = (*data->coords)[i]->y;
-			line->x2 = (*data->coords)[i - 1]->x;
-			line->y2 = (*data->coords)[i - 1]->y;
+			line->x2 = (*data->coords)[i + 1]->x;
+			line->y2 = (*data->coords)[i + 1]->y;
 			draw_line(line, data);
-
 		}
-		if ((i - data->len) >= 0)
+		if ((i + data->len) < data->size)
 		{
 			line->x1 = (*data->coords)[i]->x;
 			line->y1 = (*data->coords)[i]->y;
-			line->x2 = (*data->coords)[i - data->len]->x;
-			line->y2 = (*data->coords)[i - data->len]->y;
+			line->x2 = (*data->coords)[i + data->len]->x;
+			line->y2 = (*data->coords)[i + data->len]->y;
 			draw_line(line, data);
 		}
-		i--;
+		i++;
 	}
 	return (0);
 }

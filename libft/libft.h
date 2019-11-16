@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 12:32:15 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/16 02:03:37 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/16 05:51:57 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void				ft_putnbr(int nb);
 void				ft_putnbr_fd(int nb, int fd);
 char				*ft_str_limitcpy(char *dest, char *src, int c, int i);
 size_t				ft_strlen(const char *str);
+int					ft_strarrlen(char **str);
 char				*ft_strnew(size_t size);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 void				ft_strclr(char *s);

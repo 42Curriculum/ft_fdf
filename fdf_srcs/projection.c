@@ -41,30 +41,25 @@ int window_init(t_data *data)
 
     
     i = 0;
+    printf("\n Scale = %f", data->scale);
     while (i < data->size)
     {
-        rotate_z((*data->coords)[i],25, &_2d);
+        rotate_z((*data->coords)[i],35, &_2d);
         (*data->coords)[i]->x = _2d[0];
         (*data->coords)[i]->y = _2d[1];
-        rotate_x((*data->coords)[i],30, &_2d);
-        rotate_y((*data->coords)[i],35, &_2d);
-        (*data->coords)[i]->x = 250 - (_2d[0] * 60);
-        (*data->coords)[i]->y = 250 - ((_2d[1] * 60) + (*data->coords)[i]->z  * 30);
+        rotate_x((*data->coords)[i],45, &_2d);
+        rotate_y((*data->coords)[i],25, &_2d);
+        (*data->coords)[i]->x = 250 - (_2d[0] * data->scale);
+        (*data->coords)[i]->y = 250 - (_2d[1] * data->scale) - (*data->coords)[i]->z;
         i++;
     }
     make_image(data);
     return (1);
 }
 
-void scale(t_data *data)
+void scale(t_data **data)
 {
-    int     i;
-    
-    i = 0;
-    while (i < data->size)
-    {
-        (*data->coords)[i]->x *= data->scale;
-        (*data->coords)[i]->y *= data->scale;
-        i++;
-    }
+    (*data)->scale += 1;
+    mlx_clear_window((*data)->ptr, (*data)->window);
+    window_init(*data);
 }

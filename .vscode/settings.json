@@ -14,7 +14,9 @@
         "stdexcept": "cpp",
         "array": "cpp",
         "hashtable": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "complex": "c",
+        "cmath": "c"
     },
     "C_Cpp.dimInactiveRegions": false
 }

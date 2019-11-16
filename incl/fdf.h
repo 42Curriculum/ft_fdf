@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 21:56:04 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/16 03:43:10 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/16 12:10:15 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,18 @@ typedef struct 	s_data
 	int				len;
 }				t_data;
 
-int mlx_prgr(t_coordinates **coords);
+int mlx_prgr(t_coordinates **coords, int size, int len);
 
 int window_init(t_data *data);
-void scale(t_data *data);
+void scale(t_data **data);
 
 int reader(char *file);
-//int parse_file( char *arg);
+void parse_file(char **map, int len);
 
 int	make_image(t_data *data);
 
 int write_error(int flag);
-int file_check(char *arg, char ***map);
-int error_loop(char *arg);
+char **error_loop(char *arg, int *len);
 
 int edit_file(char *arg);
 
