@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:56:20 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/16 11:54:04 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/17 01:09:54 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ t_coordinates **parse_even(char **map, int len, int size)
 			y--;
 			x = (len /2) - 0.5;
 		}
-		else x--;
+		else
+			x--;
 	}
 	return (coords);
 }
@@ -65,11 +66,11 @@ t_coordinates **parse_odd(char **map, int len, int size)
 			y--;
 			x = (len /2);
 		}
-		else x--;
+		else
+			x--;
 	}
 	return (coords);
 }
-
 
 void parse_file(char **map, int len)
 {

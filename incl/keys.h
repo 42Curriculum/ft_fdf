@@ -67,6 +67,7 @@
 
 # define K_Mouse1 1
 # define K_Mouse2 2
-# define K_Scroll 4
+# define K_Scroll_U 4
+# define K_Scroll_D 5
 
 #endif

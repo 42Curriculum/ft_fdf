@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 12:40:36 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/16 10:20:17 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/17 04:28:21 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,18 @@ int		make_image(t_data *data)
 	{
 		if (((i + 1) < data->size) && ((i + 1) % data->len != 0))
 		{
-			line->x1 = (*data->coords)[i]->x;
-			line->y1 = (*data->coords)[i]->y;
-			line->x2 = (*data->coords)[i + 1]->x;
-			line->y2 = (*data->coords)[i + 1]->y;
+			line->x1 = (*data->coords)[i]->n_x;
+			line->y1 = (*data->coords)[i]->n_y;
+			line->x2 = (*data->coords)[i + 1]->n_x;
+			line->y2 = (*data->coords)[i + 1]->n_y;
 			draw_line(line, data);
 		}
 		if ((i + data->len) < data->size)
 		{
-			line->x1 = (*data->coords)[i]->x;
-			line->y1 = (*data->coords)[i]->y;
-			line->x2 = (*data->coords)[i + data->len]->x;
-			line->y2 = (*data->coords)[i + data->len]->y;
+			line->x1 = (*data->coords)[i]->n_x;
+			line->y1 = (*data->coords)[i]->n_y;
+			line->x2 = (*data->coords)[i + data->len]->n_x;
+			line->y2 = (*data->coords)[i + data->len]->n_y;
 			draw_line(line, data);
 		}
 		i++;
