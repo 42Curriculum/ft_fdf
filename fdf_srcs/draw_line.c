@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 12:40:36 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/17 04:28:21 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/17 19:44:46 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@
 #include <stdio.h>
 
 //mlx_pixel_put(data->ptr, data->window, line->x2, line->y2, WHITE);
+void	draw_square(float x, float y, t_data *data)
+{
+	int i;
+	i = 0;
+	
+	while (i < 10)
+	{
+		mlx_pixel_put(data->ptr, data->window, x + i, y, GREEN);
+		i++;
+	}
+	mlx_pixel_put(data->ptr, data->window, x + 1, y + 1, GREEN);
+	mlx_pixel_put(data->ptr, data->window, x + 2, y + 2, GREEN);
+	mlx_pixel_put(data->ptr, data->window, x + 3, y + 3, GREEN);
+	mlx_pixel_put(data->ptr, data->window, x + 1, y - 1, GREEN);
+	mlx_pixel_put(data->ptr, data->window, x + 2, y - 2, GREEN);
+	mlx_pixel_put(data->ptr, data->window, x + 3, y - 3, GREEN);
+	
+}
 
 void draw_line(t_line *line, t_data *data)
 {
@@ -35,8 +53,6 @@ void draw_line(t_line *line, t_data *data)
             if (e2 < dy) { err += dx; y0 += sy; }
         }
 }
-	
-	
 
 int		make_image(t_data *data)
 {

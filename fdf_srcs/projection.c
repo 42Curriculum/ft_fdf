@@ -43,6 +43,8 @@ int window_init(t_data *data)
     i = 0;
     str = ((data->mode == 0) ? "--\n| View |--" : "--\n| Edit |\n--");
     mlx_string_put(data->ptr, data->window, (data->win_len / 1.5) , data->win_h /10, ORANGE, str);
+    if (data->mode == 1)
+        mlx_string_put(data->ptr, data->window, (data->win_len / 1.8) , (data->win_h /10) + 30, GREEN, "Press Space to save");
     while (i < data->size)
     {
         rotate_z((*data->coords)[i],data->a_z, &_2d);

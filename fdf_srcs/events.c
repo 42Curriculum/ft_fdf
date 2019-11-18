@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 12:40:34 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/17 04:23:41 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/17 22:50:42 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,22 @@ void	data_init(t_data **data, int size, int len)
 	(*data)->scale = 16;
 	(*data)->size = size;
 	(*data)->len = len;
-	(*data)->win_h = ((size / len) + (size / len) / 2) * 10;
-	(*data)->win_len = (len + len/2) * 16; 
 	(*data)->mode = 0;
 	(*data)->i = 0;
-	(*data)->color = WHITE;
-	(*data)->t_Y = 0;
-	(*data)->t_X = 0;
 	(*data)->a_x = 50;
 	(*data)->a_z = 45;
+	if ((((size / len) + (size / len) / 2) * 10) < 500)
+		(*data)->win_h = 500;
+	else if (((size / len) + (size / len) / 2) * 10 > 1000)
+		(*data)->win_h = 1000;
+	else 
+		(*data)->win_h = ((size / len) + (size / len) / 2) * 10;
+	if ((len + len/2) * 16 < 500)
+		(*data)->win_len = 500;
+	else if ((len + len/2) * 16 > 1000)
+		(*data)->win_len = 1000;
+	else 
+		(*data)->win_len = (len + len/2) * 16;
 }
 
 int	on_key(int key, t_data **data)
@@ -36,14 +43,17 @@ int	on_key(int key, t_data **data)
 	if (key == K_Esc)
 	{
 		mlx_destroy_window((*data)->ptr, (*data)->window);
-		exit(0);
+		free_n_exit(0);
 	}
-	if (key == K_return)
+	else if (key == K_return)
 	{
 		(*data)->mode = ((*data)->mode == 0) ? 1 : 0;
 		mlx_clear_window((*data)->ptr, (*data)->window);
     	window_init(*data);
 	}
+	else if (key == K_SPACE)
+		create_file(*data);
+	else (mode_func(data, key));
 	return (1);
 }
 

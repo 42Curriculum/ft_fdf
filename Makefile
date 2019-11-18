@@ -1,6 +1,6 @@
 NAME = fdf
 
-F_N = main error_check parser projection events draw_line fancy_error_check
+F_N = main error_check parser projection events draw_line fancy_error_check edit_file move_pixel save_file
 OBJS = $(addprefix objects/, $(addsuffix .o, $(F_N)))
 FILES = $(addprefix fdf_srcs/, $(addsuffix .c, $(F_N)))
 

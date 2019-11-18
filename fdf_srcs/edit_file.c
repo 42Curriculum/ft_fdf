@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 03:41:56 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/17 04:22:45 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/17 20:10:52 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,73 +16,53 @@
 
 void	selected(t_data *data)
 {
-	int x;
-	int y;
+	float x;
+	float y;
 	
-	x = (*data->coords)[data->i]->n_x;
-	y = (*data->coords)[data->i]->n_y;
 	mlx_clear_window(data->ptr, data->window);
 	window_init(data);
-	mlx_pixel_put(data->ptr,data->window,x, y, GREEN);
+	x = (*data->coords)[data->i]->n_x;
+	y = (*data->coords)[data->i]->n_y;
+	draw_square(x, y, data);
 }
 
 void	m_view(t_data *data, int key)
 {
-	if (key == K_Left)
+	if (key == K_Up)
 	{
 		if (data->a_x < 90)
 			data->a_x +=1;
 	}
-	else if (key == K_Right)
+	else if (key == K_Down)
 	{
-		if (data->mode = 0)
+		if (data->mode == 0)
 		{
 			if (data->a_x > 10)
 				data->a_x -=1;
 		}
 	}
-	else if (key == K_Up)
+	else if (key == K_Right)
 		data->a_z +=1;
-	else if (key == K_Down)
+	else if (key == K_Left)
 		data->a_z -=1;
 }
 
 void	m_edit(t_data **data, int key)
 {
-	if (key == K_Left)
-	{
-		(*data)->i += 1;
-		if ((*data)->i == (*data)->size)
-			(*data)->i = 0;
-	}
-	if (key == K_Right)
-	{
-		(*data)->i -= 1;
-		if ((*data)->i < 0)
-			(*data)->i = (*data)->size - 1;
-	}
-	if (key == K_Down)
-	{
-		if ((*data)->i + (*data)->len >= (*data)->size)
-			(*data)->i = ((*data)->i + (*data)->len) - (*data)->size;
-		else
-			(*data)->i += (*data)->len;
-	}
-	if (key == K_Up)
-	{
-		if ((*data)->i - (*data)->len < 0)
-			(*data)->i = ((*data)->size - (*data)->i);
-		else
-			(*data)->i -= (*data)->len;
-	}
+	select_LR(data, key);
+	select_UD(data, key);
+	move_pixel(data, key);
+	selected(*data);
 }
 
 void	mode_func(t_data **data, int key)
 {
 	if ((*data)->mode == 0)
+	{
 		m_view(*data, key);
+		mlx_clear_window((*data)->ptr, (*data)->window);
+		window_init(*data);
+	}
 	else
 		m_edit(data, key);
-	mlx_clear_window((*data)->ptr, (*data)->window);
-	window_init(*data);
 }

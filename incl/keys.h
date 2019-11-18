@@ -48,7 +48,7 @@
 # define K_T 17
 # define K_U 32
 # define K_V 9
-# define K_W 23
+# define K_W 13
 # define K_X  7
 # define K_Y 26
 # define K_Z 6
@@ -59,6 +59,7 @@
 # define K_option 261
 # define K_return 36
 # define K_backspace 51
+# define K_SPACE 49
 
 # define K_Left 123
 # define K_Right 124

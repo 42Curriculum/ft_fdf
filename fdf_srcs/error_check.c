@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:31:27 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/16 20:56:01 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/17 22:45:31 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int file_check(char *arg, char ***map, int *len)
     if (!(file = read_file(arg, len)))
         return (0);
     *map = ft_strsplit(file, ' ');
+    free (file);
     if (!(error_check(*map)))
         return (0);
     return (1); 

@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 21:56:04 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/17 03:02:44 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/17 22:49:30 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct	s_coordinates
 {
-	float	x;
-	float	y;
-	float	z;
+	int		x;
+	int		y;
+	int		z;
 	float	n_x;
 	float	n_y;
 }				t_coordinates;
@@ -46,11 +46,8 @@ typedef struct 	s_data
 	int				len;
 	int 			win_len;
 	int 			win_h;
-	int				color;
 	int				i;
 	int				mode;
-	int				t_Y;
-	int				t_X;
 	int				a_z;
 	int				a_x;
 }				t_data;
@@ -59,6 +56,7 @@ int mlx_prgr(t_coordinates **coords, int size, int len);
 
 int window_init(t_data *data);
 void scale(t_data **data, int UD);
+void	draw_square(float x, float y, t_data *data);
 
 int reader(char *file);
 void parse_file(char **map, int len);
@@ -69,5 +67,14 @@ int write_error(int flag);
 char **error_loop(char *arg, int *len);
 
 int edit_file(char *arg);
+
+void	mode_func(t_data **data, int key);
+
+void	 move_pixel(t_data **data, int key);
+void	 select_LR(t_data **data, int key);
+void	 select_UD(t_data **data, int key);
+
+void	create_file(t_data *data);
+void	free_n_exit(t_data *data);
 
 #endif
