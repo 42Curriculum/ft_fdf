@@ -6,14 +6,13 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 12:40:34 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/17 22:50:42 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/19 03:38:44 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/fdf.h"
 #include "../incl/keys.h"
 #include "../incl/colors.h"
-#include <stdio.h>
 
 void	data_init(t_data **data, int size, int len)
 {
@@ -28,47 +27,50 @@ void	data_init(t_data **data, int size, int len)
 		(*data)->win_h = 500;
 	else if (((size / len) + (size / len) / 2) * 10 > 1000)
 		(*data)->win_h = 1000;
-	else 
+	else
 		(*data)->win_h = ((size / len) + (size / len) / 2) * 10;
-	if ((len + len/2) * 16 < 500)
+	if ((len + len / 2) * 16 < 500)
 		(*data)->win_len = 500;
-	else if ((len + len/2) * 16 > 1000)
+	else if ((len + len / 2) * 16 > 1000)
 		(*data)->win_len = 1000;
-	else 
-		(*data)->win_len = (len + len/2) * 16;
+	else
+		(*data)->win_len = (len + len / 2) * 16;
 }
 
-int	on_key(int key, t_data **data)
+int		on_key(int key, t_data **data)
 {
-	if (key == K_Esc)
+	if (key == K_ESC)
 	{
 		mlx_destroy_window((*data)->ptr, (*data)->window);
-		free_n_exit(0);
+		free_n_exit(*data);
 	}
-	else if (key == K_return)
+	else if (key == K_RETURN)
 	{
 		(*data)->mode = ((*data)->mode == 0) ? 1 : 0;
 		mlx_clear_window((*data)->ptr, (*data)->window);
-    	window_init(*data);
+		window_init(*data);
 	}
 	else if (key == K_SPACE)
+	{
 		create_file(*data);
-	else (mode_func(data, key));
+	}
+	else
+		(mode_func(data, key));
 	return (1);
 }
 
-int on_mouse(int key, int x, int y, t_data **data)
+int		on_mouse(int key, int x, int y, t_data **data)
 {
-	x +=0;
-	y+=0;
-	if (key == K_Scroll_U)
+	x += 0;
+	y += 0;
+	if (key == K_SCROLL_U)
 		scale(data, 0);
-	if (key == K_Scroll_D)
+	if (key == K_SCROLL_D)
 		scale(data, 1);
 	return (1);
 }
 
-int mlx_prgr(t_coordinates **coords, int size, int len)
+int		mlx_prgr(t_coordinates **coords, int size, int len)
 {
 	t_data *data;
 

@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 12:32:15 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/16 05:51:57 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/18 13:41:29 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int					ft_strncmp(const char *str, const char *str2, size_t n);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_better_strjoin(char **str1, char *str2);
+char				*ft_better_strjoin(char *str1, char *str2);
 char				*ft_strtrim(char	const *s);
 char				**ft_strsplit(const char *s, char c);
 char				*ft_itoa(int nb);

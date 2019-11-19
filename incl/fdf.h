@@ -6,7 +6,7 @@
 /*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 21:56:04 by jjosephi          #+#    #+#             */
-/*   Updated: 2019/11/17 22:49:30 by jjosephi         ###   ########.fr       */
+/*   Updated: 2019/11/19 05:45:28 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,24 @@
 
 # include <stdlib.h>
 
-typedef struct	s_coordinates
+typedef struct		s_coordinates
 {
-	int		x;
-	int		y;
-	int		z;
-	float	n_x;
-	float	n_y;
-}				t_coordinates;
+	int				x;
+	int				y;
+	int				z;
+	float			n_x;
+	float			n_y;
+}					t_coordinates;
 
-typedef struct s_line
+typedef struct		s_line
 {
-	float x1;
-	float x2;
-	float y1;
-	float y2;
-}				t_line;
+	float			x1;
+	float			x2;
+	float			y1;
+	float			y2;
+}					t_line;
 
-typedef struct 	s_data
+typedef struct		s_data
 {
 	t_coordinates	***coords;
 	float			scale;
@@ -44,37 +44,37 @@ typedef struct 	s_data
 	void			*window;
 	int				size;
 	int				len;
-	int 			win_len;
-	int 			win_h;
+	int				win_len;
+	int				win_h;
 	int				i;
 	int				mode;
 	int				a_z;
 	int				a_x;
-}				t_data;
+}					t_data;
 
-int mlx_prgr(t_coordinates **coords, int size, int len);
+int					mlx_prgr(t_coordinates **coords, int size, int len);
 
-int window_init(t_data *data);
-void scale(t_data **data, int UD);
-void	draw_square(float x, float y, t_data *data);
+void				window_init(t_data *data);
+void				scale(t_data **data, int ud);
+void				draw_square(float x, float y, t_data *data);
 
-int reader(char *file);
-void parse_file(char **map, int len);
+int					reader(char *file);
+void				parse_file(char **map, int len);
 
-int	make_image(t_data *data);
+int					make_image(t_data *data, int i);
 
-int write_error(int flag);
-char **error_loop(char *arg, int *len);
+int					write_error(int flag);
+char				**error_loop(char *arg, int *len);
 
-int edit_file(char *arg);
+int					edit_file(char *arg);
 
-void	mode_func(t_data **data, int key);
+void				mode_func(t_data **data, int key);
 
-void	 move_pixel(t_data **data, int key);
-void	 select_LR(t_data **data, int key);
-void	 select_UD(t_data **data, int key);
+void				move_pixel(t_data **data, int key);
+void				select_lr(t_data **data, int key);
+void				select_ud(t_data **data, int key);
 
-void	create_file(t_data *data);
-void	free_n_exit(t_data *data);
+void				create_file(t_data *data);
+void				free_n_exit(t_data *data);
 
 #endif

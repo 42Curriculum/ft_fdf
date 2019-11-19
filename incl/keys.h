@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                               */
-/*   keys.h                                                       */
-/*                                                    + +         +     */
-/*   B jjosephi <jjosephi@student.42.fr>          +#+  +       +#+        */
+/*                                                        :::      ::::::::   */
+/*   keys.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jjosephi <jjosephi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Create 2019/11/01 1423 by jjosephi          #+#    #+#             */
-/*   Update 2019/11/01 1416 by jjosephi         ###   ########.fr       */
+/*   Created: 2019/11/18 14:13:37 by jjosephi          #+#    #+#             */
+/*   Updated: 2019/11/18 14:18:19 by jjosephi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEYS_H
 # define KEYS_H
 
-# define K_Esc 53
+# define K_ESC 53
 
 # define K_1 18
 # define K_2 19
@@ -53,22 +53,22 @@
 # define K_Y 26
 # define K_Z 6
 
-# define K_shift 257
-# define K_control 256
-# define K_command 259
-# define K_option 261
-# define K_return 36
-# define K_backspace 51
+# define K_SHIFT 257
+# define K_CONTROL 256
+# define K_COMMAND 259
+# define K_OPTION 261
+# define K_RETURN 36
+# define K_DELETE 51
 # define K_SPACE 49
 
-# define K_Left 123
-# define K_Right 124
-# define K_Up 126
-# define K_Down 125
+# define K_LEFT 123
+# define K_RIGHT 124
+# define K_UP 126
+# define K_DOWN 125
 
-# define K_Mouse1 1
-# define K_Mouse2 2
-# define K_Scroll_U 4
-# define K_Scroll_D 5
+# define K_MOUSE1 1
+# define K_MOUSE2 2
+# define K_SCROLL_U 4
+# define K_SCROLL_D 5
 
 #endif
