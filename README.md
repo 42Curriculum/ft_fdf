@@ -18,4 +18,4 @@ Usage : ./fdf [fdf_map]
 
 - **WASD keys :** Move vertex
 
-![](42gif.gif)
+![](resources/42gif.gif)
