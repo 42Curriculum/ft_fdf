@@ -1,7 +1,7 @@
 # FDF
 
 A program about making a wireframe rendering
-<br> <img align="right" height="300" src="https://github.com/42Curriculum/ft_fdf/blob/master/resources/42gif.gif"/><br>
+<br> <img align="right" height="300" src="https://github.com/42Curriculum/ft_fdf/blob/master/resources/fdf.PNGf"/><br>
 Usage : ./fdf [fdf_map]
 
 **Enter :** Switch mode
