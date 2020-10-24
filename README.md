@@ -6,16 +6,25 @@ Usage : ./fdf [fdf_map]
 
 **Enter :** Switch mode
 
-### View mode
+### Controls
 
-- **Left | Right /Up | Down arrows :** Rotate
+- View mode : 
 
-- **Scrollwheel :** Zoom in /out
+```
+  [Arrows keys] Rotate
+  [Scrollwheel] Zoom in/out
+  [WASD  keys ] Move
+  [Space key  ] Switch to Edit mode
+```
 
-### Edit mode
+- Edit mode
 
-- **Left | Right /Up | Down arrows :** Select vertex
-
-- **WASD keys :** Move vertex
+```
+  [Arrows keys] Select vertex
+  [Scrollwheel] Zoom in/out
+  [WASD  keys ] Move vertex
+  [Enter key  ] Saves map in fdf_maps folder
+  [Space key  ] Switch to View mode
+```
 
 ![](resources/42gif.gif)
