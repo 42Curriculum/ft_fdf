@@ -4,7 +4,7 @@ A program about making a wireframe and projection rendering.
 
 This project is not "real" 3D, it is simply projection from a 2D map (the program input). Since it isn't complex , I didn't use a projection matrix, instead I just simplified said projection matrix into two formulas.
 
-**This program is formatted according to the Norm (42's code guidelines). The requirements at the time were:
+**This program is formatted according to the Norm (42's code guidelines). The requirements at the time were:**
   - 25 lines per function
   - 5 or less functions per file
   - no multi line macros
